@@ -23,76 +23,25 @@ AVL树一共有四种插入方式，根据插入方式不同需要做不同的�
 
 ### LL插入方式
 
-插入的节点在E节点的左子树的左子树上，如下图，“A”节点插入影响“C”节点的平衡，“C”的父节点为“E”，插入节点“A”在“E”节点的左子树的左子树上。即“B”节点的左右子节点都算LL插入。
+对于left-left的插入方式，我们使用右旋转来达到平衡，以下面这个例子为例，将B节点向上提升，然后将A节点转化为B节点的右节点，这里需要注意，如果B之前有右子树的话，需要把他转化到A节点的左子树上
 
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10ede725a13?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](./img/left-left.png)
+
 
 ### RR插入方式
 
-插入的节点在E节点的右子树的右子树上，如下图，“I”节点插入影响“G”节点的平衡，“G”的父节点为“E”，插入节点“I”在“E”节点的右子树的右子树上。即“H”节点的左右子节点都算RR插入
+对于right-right的插入方式，我们使用左旋转来达到平衡，以下面这个例子为例，将B节点向上提升，然后将A节点转化为B节点的左节点，这里需要注意，如果B之前有左子树的话，需要把他转化到A节点的右子树上
+
+![](./img/right-right.png)
 
 ### LR插入方式
 
-插入的节点在Z节点的左子树的右子树上，如下图，“C”节点插入影响“B”节点的平衡，“B”的父节点为“E”，插入节点“C”在“E”节点的左子树的右子树上。即“D”节点的左右子节点都算LR插入
+对于left-right的插入方式，我们需要先将其转化为leftleft的插入方式，以下下面这个例子为例，将C节点上升，B节点转化为C节点的左节点，这时我们只需要再做一次left-left旋转即可
 
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f205dec1f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](./img/left-right.png)
 
 ### RL插入方式
 
-插入的节点在Z节点的右子树的左子树上，如下图，“G”节点插入影响“H”节点的平衡，“H”的父节点为“E”，插入节点“G”在“E”节点的右子树的左子树上。即“F”节点的左右子节点都算RL插入。
+对于right-left的插入方式，我们需要先将其转化为right-right的插入方式，以下下面这个例子为例，将C节点上升，B节点转化为C节点的右节点，这时我们只需要再做一次right-right旋转即可
 
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10ee0e590df?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-
-## 旋转
-
-### 左旋转
-
-左单旋用于处理RR插入方式，假设存在一棵树，如下，
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f4b0e0ce2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-“G”节点左单旋即将“G”节点提高，原本它的父节点“E”则变为其左子节点，“G”节点原来的左子节点则变为其父节点“E”的右子节点。左单旋后的结果如下，重新达到了平衡。
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f36536e2c?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-### 右旋转
-
-右单旋用于处理LL插入方式，假设存在一棵树，如下，
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f0a6c64f5?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-“C”节点右单旋即将“C”节点提高，原本它的父节点“E”则变为其右子节点，“C”节点原来的右子节点则变为其父节点“E”的左子节点。右单旋后的结果如下，重新达到了平衡。
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f2524388f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-### 左右双旋
-
-左右双旋用于处理LR插入方式，假设存在一棵树，如下，
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f4793bdf8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-先以“D”节点为轴进行左单旋，结果为，
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f25ddd5c0?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-再以“D”节点为轴进行右单旋，得到最终结果，
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f52b61220?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-###  右左双旋
-
-右左双旋用于处理RL插入方式，假设存在一棵树，如下，
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f544be84e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-先以“F”节点为轴进行右单旋，结果为，
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f6fa7a7ea?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-再以“F”节点为轴进行左单旋，得到最终结果，
-
-![](https://user-gold-cdn.xitu.io/2018/8/9/1651c10f72d33b64?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-
-
-
+![](./img/right-left.png)
