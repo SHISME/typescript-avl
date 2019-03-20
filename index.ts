@@ -1,7 +1,8 @@
-import { BinarySearchTree } from './src/BinarySearchTree';
-const test = [12,32,34,1,2,4];
-const bst = new BinarySearchTree();
-test.forEach((num) => {
-  bst.insert(num);
-})
-console.log(bst.contains(4));
+import { AvlTree } from './src/AvlTree';
+const test = new AvlTree();
+test.insert(11);
+test.insert(2);
+test.insert(3);
+test.insert(7);
+test.insert(8);
+console.log(test.toString());

@@ -12,6 +12,12 @@ class AvlTree extends BinarySearchTree {
         }
     }
 
+    public remove(value) {
+        let result = super.remove(value);
+        this.balance(this.root);
+        return result;
+    }
+
     public balance(node:BinarySearchTreeNode) {
         // 左子树比右子树高出一个以上
         if (node.balanceFactor > 1) {
