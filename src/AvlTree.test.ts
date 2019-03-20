@@ -300,4 +300,13 @@ describe('AvlTree', () => {
     expect(tree.root.height).toBe(2);
     expect(tree.root.balanceFactor).toBe(0);
   });
+  it('my test', () => {
+    const test = new AvlTree();
+    test.insert(11);
+    test.insert(2);
+    test.insert(3);
+    test.insert(7);
+    test.insert(8);
+    expect(test.toString()).toBe('2,3,7,8,11');
+  })
 })
