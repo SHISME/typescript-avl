@@ -69,7 +69,11 @@ class AvlTree extends BinarySearchTree {
 
         // 根节点的左节点上升
         if (rootNode.parent) {
-          rootNode.parent.setLeft(leftNode);
+            if (rootNode.parent.left === rootNode) {
+                rootNode.parent.setLeft(leftNode);
+            } else {
+                rootNode.parent.setRight(leftNode);
+            }
         } else if (rootNode === this.root) {
           this.root = leftNode;
         }
@@ -108,7 +112,11 @@ class AvlTree extends BinarySearchTree {
 
         // 把右节点上升
         if (rootNode.parent) {
-            rootNode.parent.setRight(rightNode);
+            if (rootNode.parent.left === rootNode) {
+                rootNode.parent.setLeft(rightNode);
+            } else {
+                rootNode.parent.setRight(rightNode);
+            }
         } else if (rootNode === this.root) {
             this.root = rightNode;
         }

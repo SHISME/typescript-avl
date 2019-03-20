@@ -1,8 +1,9 @@
 import { AvlTree } from './src/AvlTree';
 const test = new AvlTree();
-test.insert(11);
-test.insert(2);
-test.insert(3);
-test.insert(7);
-test.insert(8);
+test.insert(24);
+test.insert(12);
+test.insert(34);
+test.insert(26);
+test.insert(25);
+
 console.log(test.toString());
