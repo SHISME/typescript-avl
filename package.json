@@ -1,0 +1,29 @@
+{
+  "name": "typescript-avl",
+  "version": "1.0.0",
+  "description": "AVL树，也称平衡二叉搜索树，AVL是其发明者姓名简写。AVL树属于树的一种，而且它也是一棵二叉搜索树，不同的是他通过一定机制能保证二叉搜索树的平衡，平衡的二叉搜索树的查询效率更高。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SHISME/typescript-avl.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SHISME/typescript-avl/issues"
+  },
+  "homepage": "https://github.com/SHISME/typescript-avl#readme",
+  "dependencies": {
+    "@babel/preset-env": "^7.4.1",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.11",
+    "jest": "^24.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "babel-jest": "^24.5.0"
+  }
+}

@@ -1,7 +1,7 @@
 import { BinarySearchTreeNode } from './BinarySearchTreeNode';
 
 class BinarySearchTree {
-  protected root:BinarySearchTreeNode;
+  public root:BinarySearchTreeNode;
   constructor() {
     this.root = new BinarySearchTreeNode(null);
   }
