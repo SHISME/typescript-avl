@@ -1,13 +1,16 @@
 import { BinarySearchTreeNode } from '../BinarySearchTree/BinarySearchTreeNode';
 
 class RedBlackTreeNode extends BinarySearchTreeNode {
+    public left?:RedBlackTreeNode;
+    public right?:RedBlackTreeNode;
+    public parent?:RedBlackTreeNode;
     public meta:Map<string, any>;
     constructor (value:any) {
         super(value);
         this.meta = new Map();
     }
 
-    public uncle() {
+    get uncle() {
         if (!this.parent) {
             return;
         }
@@ -23,3 +26,7 @@ class RedBlackTreeNode extends BinarySearchTreeNode {
         return this.parent.parent.left;
     }
 }
+
+export {
+    RedBlackTreeNode,
+};
