@@ -1,5 +1,5 @@
-import { BinarySearchTree } from './BinarySearchTree';
-import { BinarySearchTreeNode } from './BinarySearchTreeNode';
+import { BinarySearchTree } from '../BinarySearchTree/BinarySearchTree';
+import { BinarySearchTreeNode } from '../BinarySearchTree/BinarySearchTreeNode';
 
 class AvlTree extends BinarySearchTree {
    
