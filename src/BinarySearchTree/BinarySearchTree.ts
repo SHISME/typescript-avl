@@ -7,7 +7,7 @@ class BinarySearchTree {
   }
   
   public insert(value) {
-    this.root.insert(value);
+    return this.root.insert(value);
   }
   
   public contains(value) {

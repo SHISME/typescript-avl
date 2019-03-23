@@ -10,6 +10,30 @@ class RedBlackTreeNode extends BinarySearchTreeNode {
         this.meta = new Map();
     }
 
+    public insert(value) {
+        if (this.value === null) {
+          this.value = value;
+          return this;
+        }
+        if (value < this.value) {
+          if (this.left) {
+            return this.left.insert(value);
+          }
+          const newNode = new RedBlackTreeNode(value);
+          this.setLeft(newNode);
+          return newNode;
+        }
+        if (value > this.value) {
+          if (this.right) {
+            return this.right.insert(value);
+          }
+          const newNode = new RedBlackTreeNode(value);
+          this.setRight(newNode);
+          return newNode;
+        }
+        return this;
+    }
+
     get uncle() {
         if (!this.parent) {
             return;
@@ -17,10 +41,10 @@ class RedBlackTreeNode extends BinarySearchTreeNode {
         if (!this.parent.parent) {
             return;
         }
-        if (!this.parent.parent.left || this.parent.parent.right) {
+        if (!this.parent.parent.left || !this.parent.parent.right) {
             return;
         }
-        if (this.parent.parent.left === this.parent.parent) {
+        if (this.parent.parent.left === this.parent) {
             return this.parent.parent.right;
         }
         return this.parent.parent.left;
